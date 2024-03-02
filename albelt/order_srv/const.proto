@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "go/;proto";
+
+// 支付类型
+enum PayType {
+  PAY_TYPE_UNSPECIFIED = 0;
+  PAY_TYPE_WECHAT = 1; //微信
+  PAY_TYPE_ALIPAY = 2; //支付宝
+}
+
+// 订单状态
+enum OrderStatus {
+  ORDER_STATUS_UNSPECIFIED = 0;
+  ORDER_STATUS_PAYING = 1; //待支付
+  ORDER_STATUS_CLOSED = 2; //超时关闭
+  ORDER_STATUS_SUCCESS = 3; //交易成功
+}

@@ -1,0 +1,203 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "albelt/good_srv/msg.proto";
+
+option go_package = "go/;proto";
+
+service GoodsService{
+  //品牌
+  rpc BrandList(BrandListRequest) returns(BrandListResponse); //品牌列表
+  rpc CreateBrand(CreateBrandRequest) returns(Brand); //新建品牌信息
+  rpc DeleteBrand(DeleteBrandRequest) returns(google.protobuf.Empty); //删除品牌
+  rpc UpdateBrand(UpdateBrandRequest) returns(google.protobuf.Empty); //修改品牌信息
+
+  //轮播图
+  rpc BannerList(BannerListRequest) returns(BannerListResponse); //获取轮播列表信息
+  rpc CreateBanner(CreateBannerRequest) returns(Banner); //添加banner图
+  rpc DeleteBanner(DeleteBannerRequest) returns(google.protobuf.Empty); //删除轮播图
+  rpc UpdateBanner(UpdateBannerRequest) returns(google.protobuf.Empty); //修改轮播图
+
+  //分类
+  rpc GetAllCategorysList(GetAllCategorysListRequest) returns(GetAllCategorysListResponse); //获取所有的分类
+  rpc GetSubCategory(GetSubCategoryRequest) returns(GetSubCategoryResponse); //获取子分类
+  rpc CreateCategory(CreateCategoryRequest) returns(Category); //新建分类信息
+  rpc DeleteCategory(DeleteCategoryRequest) returns(google.protobuf.Empty); //删除分类
+  rpc UpdateCategory(UpdateCategoryRequest) returns(google.protobuf.Empty); //修改分类信息
+
+  //品牌分类
+  rpc CategoryBrandList(CategoryBrandListRequest) returns(CategoryBrandListResponse); //品牌分类列表
+  rpc GetBrandsOfCategory(GetBrandsOfCategoryRequest) returns(GetBrandsOfCategoryResponse); //获取分类下所有的品牌
+  rpc CreateCategoryBrand(CreateCategoryBrandRequest) returns(CategoryBrand); //创建品牌分类关系
+  rpc DeleteCategoryBrand(DeleteCategoryBrandRequest) returns(google.protobuf.Empty); //删除品牌分类关系
+
+  //商品
+  rpc GoodsList(GoodsListRequest) returns(GoodsListResponse);
+  rpc BatchGetGoods(BatchGetGoodsRequest) returns(GoodsListResponse);
+  rpc CreateGoods(CreateGoodsRequest) returns (Good);
+  rpc DeleteGoods(DeleteGoodsRequest) returns (google.protobuf.Empty);
+  rpc UpdateGoods(UpdateGoodsRequest) returns (google.protobuf.Empty);
+  rpc GetGoodsDetail(GetGoodsDetailRequest) returns(Good);
+}
+
+message GetSubCategoryRequest {
+  int32 id = 1;
+}
+
+message GetBrandsOfCategoryRequest {
+  int32 category_id = 1;
+}
+
+message GetBrandsOfCategoryResponse {
+  Category category = 1;
+  repeated Brand brands = 2;
+}
+
+message DeleteCategoryRequest {
+  int32 id = 1;
+}
+
+message UpdateCategoryRequest {
+  Category category = 1;
+}
+
+message QueryCategoryRequest {
+  int32 id = 1;
+  string name = 2;
+}
+
+message GetAllCategorysListRequest {
+
+}
+
+message GetAllCategorysListResponse {
+  int32 total = 1;
+  repeated Category categories = 2;
+}
+
+message GetSubCategoryResponse {
+  Category category = 1;
+  repeated Category sub_categories = 2;
+}
+
+message CreateCategoryRequest {
+  Category category = 1;
+}
+
+message CategoryBrandListRequest  {
+  int32 page = 1;
+  int32 count = 2;
+}
+
+message FilterRequest  {
+  int32 pages = 1;
+  int32 page_per_nums = 2;
+}
+
+message CreateCategoryBrandRequest{
+  CategoryBrand category_brand = 1;
+}
+
+message DeleteCategoryBrandRequest {
+  int32 id = 1;
+}
+
+message CreateBannerRequest {
+  Banner banner = 1;
+}
+
+message DeleteBannerRequest {
+  int32 id = 1;
+}
+
+message UpdateBannerRequest {
+  Banner banner = 1;
+}
+
+message BrandListRequest {
+  int32 page = 1;
+  int32 count = 2;
+}
+
+message CreateBrandRequest {
+  Brand brand = 1;
+}
+
+message DeleteBrandRequest {
+  int32 brand_id = 1;
+}
+
+message UpdateBrandRequest {
+  Brand brand = 1;
+}
+
+message BrandListResponse {
+  int32 total = 1;
+  repeated Brand brands = 2;
+}
+
+message BannerListRequest {
+
+}
+
+message BannerListResponse {
+  int32 total = 1;
+  repeated Banner banners = 2;
+}
+
+message CategoryBrandListResponse {
+  int32 total = 1;
+  repeated CategoryBrand category_brands = 2;
+}
+
+
+message BatchGetGoodsRequest {
+  repeated int32 goods_ids = 1;
+}
+
+
+message DeleteGoodsRequest {
+  int32 id = 1;
+}
+
+message CategoryFilterRequest {
+  int32 id = 1;
+  bool  is_tab = 2;
+}
+
+message GetGoodsDetailRequest {
+  int32 id = 1;
+}
+
+message CreateGoodsRequest {
+  Good good = 1;
+}
+
+message UpdateGoodsRequest {
+  Good good = 1;
+}
+
+message BatchCategoryInfoRequest {
+  repeated int32 id = 1;
+  int32 goods_nums = 2;
+  int32 brand_nums = 3;
+}
+
+message GoodsListRequest  {
+  int32 price_min = 1;
+  int32 price_max = 2;
+  bool  is_hot = 3;
+  bool  is_new = 4;
+  bool  is_tab = 5;
+  int32 category_id = 6;
+  string keywords = 9;
+  int32 brand = 10;
+
+  int32 page = 7;
+  int32 count = 8;
+}
+
+message GoodsListResponse {
+  int32 total = 1;
+  repeated Good goods = 2;
+}

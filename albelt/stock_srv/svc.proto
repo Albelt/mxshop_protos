@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option go_package = "go/;proto";
+
+import "albelt/stock_srv/msg.proto";
+
+service StockService {
+  // 设置库存
+  rpc SetStock(SetStockRequest) returns (SetStockResponse);
+  // 获取货物的库存信息
+  rpc GetStock(GetStockRequest) returns (GetStockResponse);
+  // 扣减库存
+  rpc DecreseStocks(DecreseStocksRequest) returns (DecreseStocksResponse);
+  // 归还库存
+  rpc IncreaseStocks(IncreaseStocksRequest) returns (IncreaseStocksResponse);
+}
+
+message SetStockRequest {
+  Stock stock = 1;
+}
+
+message SetStockResponse {
+  Stock stock = 1;
+}
+
+message GetStockRequest {
+  int32 goods_id = 1;
+}
+
+message GetStockResponse {
+  Stock stock = 1;
+}
+
+message DecreseStocksRequest {
+  string order_sn = 1;
+  repeated Stock stocks = 2;
+}
+
+message DecreseStocksResponse {
+
+}
+
+message IncreaseStocksRequest {
+  string order_sn = 1;
+  repeated Stock stocks = 2;
+}
+
+message IncreaseStocksResponse {
+
+}

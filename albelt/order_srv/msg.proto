@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "albelt/order_srv/const.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "go/;proto";
+
+// 购物车项目
+message ShoppingCartItem {
+  int32 id = 1;
+  int32 user_id = 2;
+  int32 goods_id = 3;
+  int32 num = 5;
+  bool checked = 6;
+}
+
+// 订单
+message Order {
+  int32 id = 1;
+  string no = 2;
+  PayType pay_type = 3;
+  OrderStatus status = 4;
+  string trade_no = 5;
+  float amount = 6;
+  google.protobuf.Timestamp pay_time = 7;
+
+  int32 user_id = 8;
+  string user_name = 9;
+  string user_mobile = 10;
+  string user_address = 11;
+
+  repeated OrderGoods goodss = 12;
+}
+
+// 订单商品
+message OrderGoods {
+  int32 id = 1;
+  int32 order_id = 2;
+  int32 goods_id = 3;
+  int32 goods_num = 4;
+  string goods_name = 5;
+  float goods_price = 6;
+}

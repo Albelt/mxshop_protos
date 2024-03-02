@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "go/;proto";
+
+message Stock {
+  int32 goods_id = 2; //商品id
+  int32 number = 3;   //库存数量
+}
+
+message OrderDetails {
+  string order_sn = 1;
+}

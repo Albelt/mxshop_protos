@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+import "albelt/user_srv/const.proto";
+import "albelt/user_srv/msg.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "go/;proto";
+
+service UserService {
+  rpc GetUserList (GetUserListRequest) returns (GetUserListResponse); // 用户列表
+  rpc GetUserByMobile (GetUserByMobileRequest) returns (User); //通过mobile查询用户
+  rpc GetUserById (GetUserByIdRequest) returns (User); //通过id查询用户
+  rpc CreateUser (CreateUserRequest) returns (User); // 添加用户
+  rpc UpdateUser (UpdateUserResponse) returns (User); // 更新用户
+  rpc CheckPassWord (CheckPassWordRequest) returns (CheckPassWordResponse); //检查密码
+}
+
+message CheckPassWordRequest {
+  string password = 1;
+  string encrypted_password = 2;
+}
+
+
+message CheckPassWordResponse {
+  bool success = 1;
+}
+
+message GetUserListRequest {
+  uint32 page = 1;
+  uint32 size = 2;
+}
+
+message GetUserByMobileRequest {
+  string mobile = 1;
+}
+
+message GetUserByIdRequest {
+  int32 id = 1;
+}
+
+message CreateUserRequest {
+  string nick_name = 1;
+  string password = 2;
+  string mobile = 3;
+}
+
+message UpdateUserResponse {
+  int32 id = 1;
+  string nick_name = 2;
+  Gender gender = 3;
+  google.protobuf.Timestamp birth_day = 4;
+}
+
+message GetUserListResponse {
+  int32 total = 1;
+  repeated User users = 2;
+}

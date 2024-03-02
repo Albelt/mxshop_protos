@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+option go_package = "go/;proto";
+
+import "google/protobuf/timestamp.proto";
+
+// 品牌
+message Brand {
+  int32 id = 1;
+  string name = 2;
+  string logo = 3;
+}
+
+// 轮播图
+message Banner {
+  int32 id = 1;
+  int32 index = 2;
+  string image = 3;
+  string url = 4;
+}
+
+// 分类
+message Category {
+  int32 id = 1;
+  string name = 2;
+  int32 parent_category_id = 3;
+  int32 level = 4;
+  bool is_tab = 5;
+}
+
+// 品牌分类
+message CategoryBrand{
+  int32 id = 1;
+
+  int32 brand_id = 2;
+  Brand brand = 3;
+
+  int32 category_id = 4;
+  Category category = 5;
+}
+
+// 商品
+message Good {
+  int32 id = 1;
+  string name = 3;
+  string goods_sn = 4;
+  int32 click_num = 5;
+  int32 sold_num = 6;
+  int32 fav_num = 7;
+  float market_price = 9;
+  float shop_price = 10;
+  string goods_brief = 11;
+  bool ship_free = 13;
+  string goods_front_image = 16;
+  bool is_new = 17;
+  bool is_hot = 18;
+  bool on_sale = 19;
+
+  int32 category_id = 2;
+  Category category = 21;
+
+  int32 brand_id = 23;
+  Brand brand = 22;
+
+  google.protobuf.Timestamp create_time = 24;
+}

@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+import "albelt/order_srv/const.proto";
+import "albelt/order_srv/msg.proto";
+
+
+option go_package = "go/;proto";
+
+service OrderService {
+  /* 购物车相关 */
+  // 获取用户的购物车
+  rpc GetUserCart(GetUserCartRequest) returns (GetUserCartResponse);
+  // 添加商品到购物车
+  rpc AddItemToCart(AddItemToCartRequest) returns (AddItemToCartResponse);
+  // 从购物车删除商品
+  rpc RemoveItemFromCart(RemoveItemFromCartRequest) returns (RemoveItemFromCartResponse);
+
+  /* 订单相关 */
+  // 使用购物车创建订单
+  rpc CreateOrderFromCart(CreateOrderFromCartRequest) returns (CreateOrderFromCartResponse);
+  // 订单详情
+  rpc GetOrderDetail(GetOrderDetailRequest) returns (GetOrderDetailResponse);
+  // 修改订单状态
+  rpc UpdateOrderStatus(UpdateOrderStatusRequest) returns (UpdateOrderStatusResponce);
+}
+
+message GetUserCartRequest {
+  int32 user_id = 1;
+}
+
+message GetUserCartResponse {
+  int32 total_item = 1;
+  repeated ShoppingCartItem items = 2;
+}
+
+message AddItemToCartRequest {
+  ShoppingCartItem item = 1;
+}
+
+message AddItemToCartResponse {}
+
+message RemoveItemFromCartRequest {
+  int32 user_id = 1;
+  int32 goods_id = 2;
+}
+
+message RemoveItemFromCartResponse {}
+
+message CreateOrderFromCartRequest {
+  int32 user_id = 1;
+  Order order = 2;
+}
+
+message CreateOrderFromCartResponse {
+  Order order = 1;
+}
+
+message GetOrderDetailRequest {
+  int32 order_id = 1;
+}
+
+message GetOrderDetailResponse {
+  Order order = 1;
+}
+
+message UpdateOrderStatusRequest {
+  int32 order_id = 1;
+  string order_no = 2;
+  OrderStatus status = 3;
+}
+
+message UpdateOrderStatusResponce {}

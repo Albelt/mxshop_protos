@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "go/;proto";
+
+// 库存扣减历史的状态
+enum StockHistoryStatus {
+  STOCK_HISTORY_STATUS_UNSPECIFIED = 0;
+  // 已扣减
+  STOCK_HISTORY_STATUS_REDUCED = 1;
+  // 已归还
+  STOCK_HISTORY_STATUS_RESTORED = 2;
+}

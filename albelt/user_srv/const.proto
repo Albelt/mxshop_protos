@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "go/;proto";
+
+enum Gender {
+  GENDER_UNSPECIFIED = 0;
+  GENDER_MALE = 1;
+  GENDER_FELAME = 2;
+}
+
+enum UserRole {
+  USER_ROLE_UNSPECIFIED = 0;
+  // 普通用户
+  USER_ROLE_NORMAL = 1;
+  // 管理员
+  USER_ROLE_ADMIN = 2;
+}
+
+// 短信验证码类型
+enum SmsType {
+  SMS_TYPE_UNSPECIFIED = 0;
+  // 注册
+  SMS_TYPE_REGISTER = 1;
+  // 登录
+  SMS_TYPE_LOGIN = 2;
+}
