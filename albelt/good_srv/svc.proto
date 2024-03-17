@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package good_srv;
+
 import "google/protobuf/empty.proto";
 import "albelt/good_srv/msg.proto";
 

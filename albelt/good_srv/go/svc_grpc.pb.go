@@ -20,29 +20,29 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	GoodsService_BrandList_FullMethodName           = "/GoodsService/BrandList"
-	GoodsService_CreateBrand_FullMethodName         = "/GoodsService/CreateBrand"
-	GoodsService_DeleteBrand_FullMethodName         = "/GoodsService/DeleteBrand"
-	GoodsService_UpdateBrand_FullMethodName         = "/GoodsService/UpdateBrand"
-	GoodsService_BannerList_FullMethodName          = "/GoodsService/BannerList"
-	GoodsService_CreateBanner_FullMethodName        = "/GoodsService/CreateBanner"
-	GoodsService_DeleteBanner_FullMethodName        = "/GoodsService/DeleteBanner"
-	GoodsService_UpdateBanner_FullMethodName        = "/GoodsService/UpdateBanner"
-	GoodsService_GetAllCategorysList_FullMethodName = "/GoodsService/GetAllCategorysList"
-	GoodsService_GetSubCategory_FullMethodName      = "/GoodsService/GetSubCategory"
-	GoodsService_CreateCategory_FullMethodName      = "/GoodsService/CreateCategory"
-	GoodsService_DeleteCategory_FullMethodName      = "/GoodsService/DeleteCategory"
-	GoodsService_UpdateCategory_FullMethodName      = "/GoodsService/UpdateCategory"
-	GoodsService_CategoryBrandList_FullMethodName   = "/GoodsService/CategoryBrandList"
-	GoodsService_GetBrandsOfCategory_FullMethodName = "/GoodsService/GetBrandsOfCategory"
-	GoodsService_CreateCategoryBrand_FullMethodName = "/GoodsService/CreateCategoryBrand"
-	GoodsService_DeleteCategoryBrand_FullMethodName = "/GoodsService/DeleteCategoryBrand"
-	GoodsService_GoodsList_FullMethodName           = "/GoodsService/GoodsList"
-	GoodsService_BatchGetGoods_FullMethodName       = "/GoodsService/BatchGetGoods"
-	GoodsService_CreateGoods_FullMethodName         = "/GoodsService/CreateGoods"
-	GoodsService_DeleteGoods_FullMethodName         = "/GoodsService/DeleteGoods"
-	GoodsService_UpdateGoods_FullMethodName         = "/GoodsService/UpdateGoods"
-	GoodsService_GetGoodsDetail_FullMethodName      = "/GoodsService/GetGoodsDetail"
+	GoodsService_BrandList_FullMethodName           = "/good_srv.GoodsService/BrandList"
+	GoodsService_CreateBrand_FullMethodName         = "/good_srv.GoodsService/CreateBrand"
+	GoodsService_DeleteBrand_FullMethodName         = "/good_srv.GoodsService/DeleteBrand"
+	GoodsService_UpdateBrand_FullMethodName         = "/good_srv.GoodsService/UpdateBrand"
+	GoodsService_BannerList_FullMethodName          = "/good_srv.GoodsService/BannerList"
+	GoodsService_CreateBanner_FullMethodName        = "/good_srv.GoodsService/CreateBanner"
+	GoodsService_DeleteBanner_FullMethodName        = "/good_srv.GoodsService/DeleteBanner"
+	GoodsService_UpdateBanner_FullMethodName        = "/good_srv.GoodsService/UpdateBanner"
+	GoodsService_GetAllCategorysList_FullMethodName = "/good_srv.GoodsService/GetAllCategorysList"
+	GoodsService_GetSubCategory_FullMethodName      = "/good_srv.GoodsService/GetSubCategory"
+	GoodsService_CreateCategory_FullMethodName      = "/good_srv.GoodsService/CreateCategory"
+	GoodsService_DeleteCategory_FullMethodName      = "/good_srv.GoodsService/DeleteCategory"
+	GoodsService_UpdateCategory_FullMethodName      = "/good_srv.GoodsService/UpdateCategory"
+	GoodsService_CategoryBrandList_FullMethodName   = "/good_srv.GoodsService/CategoryBrandList"
+	GoodsService_GetBrandsOfCategory_FullMethodName = "/good_srv.GoodsService/GetBrandsOfCategory"
+	GoodsService_CreateCategoryBrand_FullMethodName = "/good_srv.GoodsService/CreateCategoryBrand"
+	GoodsService_DeleteCategoryBrand_FullMethodName = "/good_srv.GoodsService/DeleteCategoryBrand"
+	GoodsService_GoodsList_FullMethodName           = "/good_srv.GoodsService/GoodsList"
+	GoodsService_BatchGetGoods_FullMethodName       = "/good_srv.GoodsService/BatchGetGoods"
+	GoodsService_CreateGoods_FullMethodName         = "/good_srv.GoodsService/CreateGoods"
+	GoodsService_DeleteGoods_FullMethodName         = "/good_srv.GoodsService/DeleteGoods"
+	GoodsService_UpdateGoods_FullMethodName         = "/good_srv.GoodsService/UpdateGoods"
+	GoodsService_GetGoodsDetail_FullMethodName      = "/good_srv.GoodsService/GetGoodsDetail"
 )
 
 // GoodsServiceClient is the client API for GoodsService service.
@@ -833,7 +833,7 @@ func _GoodsService_GetGoodsDetail_Handler(srv interface{}, ctx context.Context, 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var GoodsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "GoodsService",
+	ServiceName: "good_srv.GoodsService",
 	HandlerType: (*GoodsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

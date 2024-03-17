@@ -19,10 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	StockService_SetStock_FullMethodName       = "/StockService/SetStock"
-	StockService_GetStock_FullMethodName       = "/StockService/GetStock"
-	StockService_DecreseStocks_FullMethodName  = "/StockService/DecreseStocks"
-	StockService_IncreaseStocks_FullMethodName = "/StockService/IncreaseStocks"
+	StockService_SetStock_FullMethodName       = "/stock_srv.StockService/SetStock"
+	StockService_GetStock_FullMethodName       = "/stock_srv.StockService/GetStock"
+	StockService_DecreseStocks_FullMethodName  = "/stock_srv.StockService/DecreseStocks"
+	StockService_IncreaseStocks_FullMethodName = "/stock_srv.StockService/IncreaseStocks"
 )
 
 // StockServiceClient is the client API for StockService service.
@@ -203,7 +203,7 @@ func _StockService_IncreaseStocks_Handler(srv interface{}, ctx context.Context, 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var StockService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "StockService",
+	ServiceName: "stock_srv.StockService",
 	HandlerType: (*StockServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

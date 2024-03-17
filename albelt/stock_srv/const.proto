@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package stock_srv;
+
 option go_package = "go/;proto";
 
 // 库存扣减历史的状态

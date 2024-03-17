@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package user_srv;
+
 import "albelt/user_srv/const.proto";
 import "albelt/user_srv/msg.proto";
 import "google/protobuf/timestamp.proto";

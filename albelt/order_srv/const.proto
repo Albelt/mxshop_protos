@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package order_srv;
+
 option go_package = "go/;proto";
 
 // 支付类型

@@ -4,6 +4,7 @@ good:
 		--go_out=albelt/good_srv \
 		--go-grpc_out=albelt/good_srv \
 		--validate_out="lang=go:albelt/good_srv" \
+		--doc_out=./doc --doc_opt=html,good_srv.html \
 		albelt/good_srv/msg.proto albelt/good_srv/svc.proto
 
 
@@ -13,6 +14,7 @@ order:
 		--go_out=albelt/order_srv \
 		--go-grpc_out=albelt/order_srv \
 		--validate_out="lang=go:albelt/order_srv" \
+		--doc_out=./doc --doc_opt=html,order_srv.html \
 		albelt/order_srv/msg.proto albelt/order_srv/svc.proto albelt/order_srv/const.proto
 
 
@@ -22,6 +24,7 @@ stock:
 		--go_out=albelt/stock_srv \
 		--go-grpc_out=albelt/stock_srv \
 		--validate_out="lang=go:albelt/stock_srv" \
+		--doc_out=./doc --doc_opt=html,stock_srv.html \
 		albelt/stock_srv/msg.proto albelt/stock_srv/svc.proto albelt/stock_srv/const.proto
 
 
@@ -31,6 +34,7 @@ user:
 		--go_out=albelt/user_srv \
 		--go-grpc_out=albelt/user_srv \
 		--validate_out="lang=go:albelt/user_srv" \
+		--doc_out=./doc --doc_opt=html,user_srv.html \
 		albelt/user_srv/msg.proto albelt/user_srv/svc.proto albelt/user_srv/const.proto
 
 
@@ -44,3 +48,4 @@ all:
 .PHONY: clean
 clean:
 	rm -rf ./albelt/**/go
+	rm -rf ./doc/*

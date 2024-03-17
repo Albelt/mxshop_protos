@@ -19,12 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	UserService_GetUserList_FullMethodName     = "/UserService/GetUserList"
-	UserService_GetUserByMobile_FullMethodName = "/UserService/GetUserByMobile"
-	UserService_GetUserById_FullMethodName     = "/UserService/GetUserById"
-	UserService_CreateUser_FullMethodName      = "/UserService/CreateUser"
-	UserService_UpdateUser_FullMethodName      = "/UserService/UpdateUser"
-	UserService_CheckPassWord_FullMethodName   = "/UserService/CheckPassWord"
+	UserService_GetUserList_FullMethodName     = "/user_srv.UserService/GetUserList"
+	UserService_GetUserByMobile_FullMethodName = "/user_srv.UserService/GetUserByMobile"
+	UserService_GetUserById_FullMethodName     = "/user_srv.UserService/GetUserById"
+	UserService_CreateUser_FullMethodName      = "/user_srv.UserService/CreateUser"
+	UserService_UpdateUser_FullMethodName      = "/user_srv.UserService/UpdateUser"
+	UserService_CheckPassWord_FullMethodName   = "/user_srv.UserService/CheckPassWord"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -261,7 +261,7 @@ func _UserService_CheckPassWord_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "UserService",
+	ServiceName: "user_srv.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
